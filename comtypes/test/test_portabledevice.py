@@ -103,15 +103,13 @@ class Test_IPortableDevice(ut.TestCase):
                 resources = content.Transfer()
                 STGM_READ = c_uint(0)
                 optimalTransferSizeBytes = pointer(c_ulong(0))
-                pFileStream = POINTER(port_api.IStream)()
-                optimalTransferSizeBytes, pFileStream = resources.GetStream(
+                optimalTransferSizeBytes, fileStream = resources.GetStream(
                     objectID,
                     WPD_RESOURCE_DEFAULT,
                     STGM_READ,
                     optimalTransferSizeBytes,
                 )
                 blockSize = optimalTransferSizeBytes.contents.value
-                fileStream = pFileStream.value
                 while True:
                     #
                     # # This crashes without an exception - likely a segfault somewhere deeper.
