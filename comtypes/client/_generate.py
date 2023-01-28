@@ -252,6 +252,7 @@ def _get_known_symbols() -> Dict[str, str]:
         "comtypes.persist",
         "comtypes.typeinfo",
         "comtypes.automation",
+        "comtypes.objidl",
         "comtypes",
         "ctypes.wintypes",
         "ctypes",
